@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+}
+
+section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: url("public/images/cherry-logo.jpg") no-repeat 63% 60% / 20%,
+    url("public/images/cherry-logo.jpg") no-repeat 37% 30% / 20%, #fef4e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+/* Small screen */
+@media only screen and (max-width: 768px) {
+  section {
+    background: url("public/images/cherry-logo.jpg") no-repeat 100% 25% / 60%,
+      url("public/images/cherry-logo.jpg") no-repeat 5% 80% / 50%, #fef4e8;
+  }
+}
+.container {
+  position: relative;
+  height: 225px;
+  width: 375px;
+  z-index: 100;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+}
+.container:hover {
+  transform: rotateY(180deg);
+}
+.container .card {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 25px;
+  border-radius: 25px;
+  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backface-visibility: hidden;
+}
+.front-face {
+  display: flex;
+  align-items: center;
+}
+div.card-name-role {
+  font-size: 20px;
+  font-weight: 700;
+}
+a.name {
+  color: #d2042d;
+}
+h5 {
+  font-size: 16px;
+  font-weight: 400;
+}
+.front-face .card-details .contact-info {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+h5.name {
+  margin-top: 20px;
+}
+h5.role {
+  color: #d2042d;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.card.back-face {
+  border: none;
+  padding: 15px 25px 25px 25px;
+  transform: rotateY(180deg);
+}
+.card.back-face h6 {
+  font-size: 8px;
+}
+.card.back-face {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+.back-face {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.begin-info,
+.contact-info,
+.end-info {
+  width: 100%;
+}
+
+.keyword {
+  color: #3657ec;
+}
+
+.function-name {
+  color: #128b37;
+}
+
+.function-call {
+  color: #ffa500;
+}
+
+.variable {
+  color: #f9a6a2;
+}
+
+.operator {
+  color: #d2042d;
+}
+
+a.string {
+  text-decoration: none;
+}
+
+a.string:hover {
+  text-decoration: underline;
+}
