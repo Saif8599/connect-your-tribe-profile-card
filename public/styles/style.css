@@ -2,130 +2,135 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Space Mono", monospace;
 }
 
-section {
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
-  background: url("public/images/cherry-logo.jpg") no-repeat 63% 60% / 20%,
-    url("public/images/cherry-logo.jpg") no-repeat 37% 30% / 20%, #fef4e8;
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #1e1e1e;
+  color: #c5c5c5;
   display: flex;
-  align-items: center;
   justify-content: center;
-  perspective: 1000px;
+  align-items: center;
+  min-height: 100vh;
 }
-/* Small screen */
-@media only screen and (max-width: 768px) {
-  section {
-    background: url("public/images/cherry-logo.jpg") no-repeat 100% 25% / 60%,
-      url("public/images/cherry-logo.jpg") no-repeat 5% 80% / 50%, #fef4e8;
+
+.card-section {
+  background: #2d2d2d;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: #1a1a1a;
+    border-bottom: 1px solid #444;
+  }
+
+  .control-buttons {
+    display: flex;
+    gap: 8px;
+
+    button {
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+      background-color: #f04747;
+      cursor: pointer;
+
+      &.spin {
+        background-color: #f7c325;
+        transition: transform 0.3s ease-out;
+
+        &:hover {
+          transform: scale(0.9);
+          background-color: #705810;
+        }
+      }
+
+      &.delete-button {
+        background-color: #f04747;
+        transition: transform 0.3s ease-out;
+
+        &:hover {
+          transform: scale(0.9);
+          background-color: #812121;
+        }
+      }
+    }
   }
 }
-.container {
+
+.card-container {
+  perspective: 1000px;
   position: relative;
-  height: 225px;
-  width: 375px;
-  z-index: 100;
-  transition: 0.6s;
-  transform-style: preserve-3d;
+
+  .flip-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+
+    .card-face-front,
+    .card-face-back {
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+
+    .card-face-front {
+      padding: 0.5em 0.5em;
+
+      .name-title {
+        display: block;
+        color: #00ff00;
+        font-size: 1rem;
+      }
+
+      &::after {
+        content: "C:\\Saif Muhamad\\Frontend Web Developer>";
+        font-weight: bold;
+        color: #00ff00;
+      }
+    }
+
+    .card-face-back {
+      background: #2d2d2d;
+      padding: 1.5rem;
+      transform: rotateY(180deg);
+      color: #c5c5c5;
+
+      .card-content {
+        margin-top: 1rem;
+      }
+    }
+  }
 }
-.container:hover {
+
+/* Actions */
+.closed {
+  opacity: 0;
+  transform: scale(0.2) rotate(-180deg);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.spin {
   transform: rotateY(180deg);
 }
-.container .card {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  padding: 25px;
-  border-radius: 25px;
-  backdrop-filter: blur(25px);
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backface-visibility: hidden;
-}
-.front-face {
-  display: flex;
-  align-items: center;
-}
-div.card-name-role {
-  font-size: 20px;
-  font-weight: 700;
-}
-a.name {
-  color: #d2042d;
-}
-h5 {
-  font-size: 16px;
-  font-weight: 400;
-}
-.front-face .card-details .contact-info {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+
+.hidden {
+  display: none;
 }
 
-h5.name {
-  margin-top: 20px;
-}
-h5.role {
-  color: #d2042d;
-  font-size: 18px;
-  letter-spacing: 1px;
-}
-
-.card.back-face {
-  border: none;
-  padding: 15px 25px 25px 25px;
-  transform: rotateY(180deg);
-}
-.card.back-face h6 {
-  font-size: 8px;
-}
-.card.back-face {
-  display: flex;
-  align-items: center;
-  font-size: 18px;
-  font-weight: 700;
-}
-.back-face {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-.begin-info,
-.contact-info,
-.end-info {
-  width: 100%;
-}
-
-.keyword {
-  color: #3657ec;
-}
-
-.function-name {
-  color: #128b37;
-}
-
-.function-call {
-  color: #ffa500;
-}
-
-.variable {
-  color: #f9a6a2;
-}
-
-.operator {
-  color: #d2042d;
-}
-
-a.string {
-  text-decoration: none;
-}
-
-a.string:hover {
-  text-decoration: underline;
+.block {
+  display: block;
 }
