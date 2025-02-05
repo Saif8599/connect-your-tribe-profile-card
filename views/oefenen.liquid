@@ -1,0 +1,19 @@
+<article>
+  <link rel="stylesheet" href="/styles/oefenen.css" />
+  <header>
+    <h1>Hallo</h1>
+    <p>mijn naam is {{ person.name }}</p>
+    <p>mijn ID is {{ person.id }}</p>
+    <p>het is vandaag {{ "now" | date }}</p>
+    <p>geboren op {{ person.birthdate }}</p>
+    <p>
+      eindelijk heb ik mijn kleur "{{ person.custom.color }}" kunnen parsen naar
+      string
+    </p>
+  </header>
+</article>
+
+<details>
+  <summary>Data</summary>
+  <pre>{{ person | json : 4 }}</pre>
+</details>

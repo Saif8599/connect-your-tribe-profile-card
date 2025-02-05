@@ -1,0 +1,16 @@
+article {
+  max-width: 50%;
+  margin: 0 auto;
+  border: 2px solid green;
+  border-radius: 5px;
+  padding: 16px;
+}
+
+details {
+  max-width: 50%;
+  margin: 0 auto;
+  margin-top: 16px;
+  border: 2px solid green;
+  border-radius: 5px;
+  padding: 16px;
+}
