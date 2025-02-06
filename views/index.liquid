@@ -24,19 +24,19 @@
         <div class="card-content">
           <p>
             <strong>Name:</strong>
-            Saif Muhamad</p>
+            {{ person.name }}</p>
           <p>
             <strong>Title:</strong>
-            Student</p>
+            {{ person.role }}</p>
           <p>
             <strong>Phone:</strong>
-            020 595 1405</p>
+            {{ person.custom.phone }}</p>
           <p>
             <strong>Email:</strong>
-            SaifzMuhamad@gmail.com</p>
+            {{ person.custom.email }}</p>
           <p>
             <strong>Website:</strong>
-            <a href="https://saifmuhamad.nl" target="_blank">Saifmuhamad.nl</a>
+            <a href="https://{{ person.custom.website }}" target="_blank">{{ person.custom.website }}</a>
           </p>
         </div>
       </div>
